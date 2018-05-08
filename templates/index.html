@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+            <title>Concrete Water Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="{{ url_for("static", filename='css/bootstrap.min.css')}}" rel="stylesheet">
+      <link rel="shortcut icon" href="{{ url_for("static", filename='images/favicon.jpg')}}">
+      <style>{{ url_for("static", filename="css/style.css") }}</style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script  src="{{url_for('static', filename='js/modal.js') }}"></script>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+  </head>
+
+
+<header>
+	<div class="navbar-header">
+      <a class="navbar-brand" href="/">
+	  <img style="max-width:120px; margin-top: -7px;" src="{{ url_for('static', filename='images/mainlogo.png') }}">
+	  </a>
+    </div>
+</header>
+<body background="{{ url_for("static", filename="images/background.jpg") }}">
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/style.css")}}" type="text/css">
+
+<form  method="post" id="formId">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h3>Concrete Water Prediction</h3>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="{{ request.form.cement }}" placeholder="cement" name="cement" id="cement">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="{{ request.form.fine }}" placeholder="fine" name="fine" id="fine">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="{{ request.form.coarse }}" placeholder="coarse" name="coarse" id="coarse">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="{{ request.form.age }}" placeholder="age" name="age" id="age">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+                <div class="control-group">
+				<input type="text" class="login-field" value="{{ request.form.strength }}" placeholder="strength" name="strength" id="strength">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+{#                <input type="submit" value="predict" class="btn btn-primary btn-large btn-block" >#}
+
+
+                <input type="button"  value="predict" class="btn btn-primary btn-lg" onclick="submitDetailsForm(age)"
+                       data-toggle="modal" data-target="#myModal">
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="myModalLabel">Water Quantity</h3>
+      </div>
+      <div class="modal-body">
+      <h5 id="result">
+      yfugjbjhk
+
+          {% if quantity %}
+          {{ quantity }}
+          {% else %}
+          {{ error }}
+          {% endif %}
+
+
+      </h5>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+</form>
+
+</body>
+
+
+
+</html>
+
+
